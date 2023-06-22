@@ -1,0 +1,13 @@
+#!/usr/bin/execlineb -P
+
+define confdir /container/profile/qBittorrent/config
+define conf ${confdir}/qBittorrent.conf
+
+foreground {
+  if { eltest ! -d $confdir }
+  mkdir -p $confdir
+}
+
+if { eltest ! -f $conf }
+redirfd -x 1 $conf
+echo "[LegalNotice]\nAccepted=true"
