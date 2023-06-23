@@ -1,5 +1,8 @@
 #!/usr/bin/execlineb -P
 
+with-contenv
+importas alternative WEBUI_ALTERNATIVE
+
 define confdir /container/profile/qBittorrent/config
 define conf ${confdir}/qBittorrent.conf
 
@@ -10,4 +13,12 @@ foreground {
 
 if { eltest ! -f $conf }
 redirfd -x 1 $conf
-echo "[LegalNotice]\nAccepted=true"
+echo
+"
+[LegalNotice]
+Accepted=true
+
+[Preferences]
+WebUI\\RootFolder=/opt/webui
+WebUI\\AlternativeUIEnabled=${alternative}
+"
