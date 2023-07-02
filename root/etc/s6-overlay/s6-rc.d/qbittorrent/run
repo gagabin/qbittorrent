@@ -1,6 +1,0 @@
-#!/usr/bin/execlineb -P
-
-with-contenv
-importas port WEBUI_PORT
-
-qbittorrent-nox --webui-port=${port} --profile=/container/profile
